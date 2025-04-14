@@ -42,6 +42,7 @@ cd public_APIs
 ```bash
 npm install
 ```
+---
 
 ## 🔐 API Key Setup
 
