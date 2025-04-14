@@ -60,6 +60,8 @@ This project requires an **API key** to work with the public APIs. To keep your 
 
   4. **Ensure .env is added to your .gitignore** to prevent it from being tracked by Git and uploaded to any public repository. The .gitignorefile should already include.env`, but please verify it.
 
+---
+
 3. Start the server:
 ```bash
 node server.js
