@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cities</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <% if(locals.data){ %> 
+      <div class="aqi-box-container">
+
+        <div class="aqi-box">Air Quality Index of <span id="city"><%= data.city %></span> is <span id="aqi"><%= data.aqiUs %></span></div>
+      </div>
+      <div class="container">
+        <h2>Air Quality Index (US) Levels</h2>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>AQI Range</th>
+                <th>Level</th>
+                <th>Emoji</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-label="AQI Range">0–50</td>
+                <td data-label="Level">Good</td>
+                <td data-label="Emoji">🟢😊</td>
+                <td data-label="Description">Air quality is satisfactory.</td>
+              </tr>
+              <tr>
+                <td data-label="AQI Range">51–100</td>
+                <td data-label="Level">Moderate</td>
+                <td data-label="Emoji">🟡😐</td>
+                <td data-label="Description">Acceptable; some concern for few.</td>
+              </tr>
+              <tr>
+                <td data-label="AQI Range">101–150</td>
+                <td data-label="Level">Unhealthy for Sensitive Groups</td>
+                <td data-label="Emoji">🟠😷</td>
+                <td data-label="Description">Sensitive people may be affected.</td>
+              </tr>
+              <tr>
+                <td data-label="AQI Range">151–200</td>
+                <td data-label="Level">Unhealthy</td>
+                <td data-label="Emoji">🔴🤒</td>
+                <td data-label="Description">Everyone may begin to feel effects.</td>
+              </tr>
+              <tr>
+                <td data-label="AQI Range">201–300</td>
+                <td data-label="Level">Very Unhealthy</td>
+                <td data-label="Emoji">🟣😫</td>
+                <td data-label="Description">Health alert: serious risk.</td>
+              </tr>
+              <tr>
+                <td data-label="AQI Range">301–500</td>
+                <td data-label="Level">Hazardous</td>
+                <td data-label="Emoji">⚫☠️</td>
+                <td data-label="Description">Emergency: everyone affected.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      
+      <% }else{ %>
+    <div class="container">
+      <h1>List of Cities</h1>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>City</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% cities.forEach((city, i) => { %>
+            <!-- cities is an array  -->
+            <tr>
+              <td data-label="#"><%= i + 1 %></td>
+              <td data-label="CITY"><%= city%></td>
+              <td data-label="Action">
+                <form action="/aqi" method="GET">
+                  <input type="hidden" name="city" value="<%= city %>" />
+                  <button class="cityPageBtn" type="submit">
+                    know Air Quality Index of <span id="cities"><%= city %></span>
+                  </button>
+                </form>
+              </td>
+            </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <% } %>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Countries</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>List of Countries</h1>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Country</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% countries.forEach((country, i) => { %>
+            <!-- countries is an array  -->
+            <tr>
+              <td data-label="#"><%= i + 1 %></td>
+              <td data-label="Country"><%= country %></td>
+              <td data-label="Action">
+                <form action="/states" method="GET">
+                  <input type="hidden" name="country" value="<%= country %>"/>
+                  <button class="countryPageBtn" >See States</button>
+                </form>
+              </td>
+            </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
