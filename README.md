@@ -58,7 +58,7 @@ This project requires an **API key** to work with the public APIs. To keep your 
 
   3. Replace 'your_own_api_key_here' with your actual API key. You can obtain it by registering on the relevant API provider’s website(Air Quality API by IQAir) .
 
-  4.**Ensure .env is added to your .gitignore** to prevent it from being tracked by Git and uploaded to any public repository. The .gitignorefile should already include.env`, but please verify it.
+  4. **Ensure .env is added to your .gitignore** to prevent it from being tracked by Git and uploaded to any public repository. The .gitignorefile should already include.env`, but please verify it.
 
 3. Start the server:
 ```bash
